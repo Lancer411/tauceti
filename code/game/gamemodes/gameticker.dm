@@ -72,6 +72,7 @@ var/global/datum/controller/gameticker/ticker
 
 /datum/controller/gameticker/proc/setup()
 	CatchThisBug("Proc: gameticker/setup, stage: START PROC")
+	CatchThisBug("Clients: [clients.len]")
 	//Create and announce mode
 	if(master_mode=="secret")
 		src.hide_mode = 1
@@ -170,6 +171,7 @@ var/global/datum/controller/gameticker/ticker
 		spawn(3000)
 		statistic_cycle() // Polls population totals regularly and stores them in an SQL DB -- TLE
 
+	CatchThisBug("Clients: [clients.len]")
 	CatchThisBug("Proc: gameticker/setup, stage: END PROC")
 	return 1
 
