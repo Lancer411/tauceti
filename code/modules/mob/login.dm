@@ -57,6 +57,6 @@
 		if(H.species && H.species.abilities)
 			client.verbs |= H.species.abilities
 
-	CatchThisBug("Proc: gameticker/setup, stage: nanomanager.send_resources")
+	CatchThisBug("Proc: /mob/Login, stage: nanomanager.send_resources")
 	nanomanager.send_resources(client)
 	CatchThisBug("Proc: /mob/Login, stage: END PROC")
