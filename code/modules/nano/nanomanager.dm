@@ -208,6 +208,7 @@
   */
 
 /datum/nanomanager/proc/send_resources(client)
+	CatchThisBug("	Proc: /nanomanager/send_resources, stage: START PROC")
 	var/list/nano_asset_dirs = list(\
 		"nano/css/",\
 		"nano/images/",\
@@ -216,9 +217,15 @@
 	)
 	
 	var/list/files = null
+	CatchThisBug("	Proc: /nanomanager/send_resources, stage: for cycle")
 	for (var/path in nano_asset_dirs)
+		CatchThisBug("	Proc: /nanomanager/send_resources, path: [path]")
 		files = flist(path)
+		CatchThisBug("	Proc: /nanomanager/send_resources, stage: for cycle2")
 		for(var/file in files)
+			CatchThisBug("	Proc: /nanomanager/send_resources, file: [file]")
 			if(copytext(file, length(file)) != "/") // files which end in "/" are actually directories, which we want to ignore
+				CatchThisBug("	Proc: /nanomanager/send_resources, send file, file: [path][file]")
 				client << browse_rsc(file(path + file))	// send the file to the client
-
+				CatchThisBug("	Proc: /nanomanager/send_resources, next")
+	CatchThisBug("	Proc: /nanomanager/send_resources, stage: END PROC")
